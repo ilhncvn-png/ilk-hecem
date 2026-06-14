@@ -3682,7 +3682,7 @@ function Hero({ go }) {
       color: "var(--text-body)",
       margin: "22px 0 0",
       maxWidth: 520
-    } }, "Tuzla'da sevgi dolu, g\xFCvenli ve oyun temelli bir ortamda; miniklerimiz ke\u015Ffederek \xF6\u011Freniyor, g\xFClerek b\xFCy\xFCyor."), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexWrap: "wrap", gap: 14, marginTop: 30 } }, /* @__PURE__ */ React.createElement(Button, { as: "a", href: window.WA_LINK(), target: "_blank", rel: "noopener", variant: "whatsapp", size: "lg", iconLeft: /* @__PURE__ */ React.createElement(window.WhatsApp, null) }, "WhatsApp'tan Bilgi Al"), /* @__PURE__ */ React.createElement(Button, { variant: "outline", size: "lg", iconRight: /* @__PURE__ */ React.createElement(window.ArrowR, null), onClick: () => go("hakkimizda") }, "Okulumuzu Tan\u0131y\u0131n")), /* @__PURE__ */ React.createElement("div", { style: { display: "flex", flexWrap: "wrap", gap: 20, marginTop: 34 } }, [["Shield", "2\u20136 ya\u015F g\xFCvenli ortam"], ["Cap", "Deneyimli \xF6\u011Fretmenler"], ["Camera", "Kameral\u0131 kamp\xFCs"]].map(([ico, t]) => {
+    } }, "Tuzla'da sevgi dolu, g\xFCvenli ve oyun temelli bir ortamda; miniklerimiz ke\u015Ffederek \xF6\u011Freniyor, g\xFClerek b\xFCy\xFCyor."), /* @__PURE__ */ React.createElement("div", { className: "ih-hero-ctas", style: { display: "flex", flexWrap: "wrap", gap: 14, marginTop: 30 } }, /* @__PURE__ */ React.createElement(Button, { as: "a", href: window.WA_LINK(), target: "_blank", rel: "noopener", variant: "whatsapp", size: "lg", iconLeft: /* @__PURE__ */ React.createElement(window.WhatsApp, null) }, "WhatsApp'tan Bilgi Al"), /* @__PURE__ */ React.createElement(Button, { variant: "outline", size: "lg", iconRight: /* @__PURE__ */ React.createElement(window.ArrowR, null), onClick: () => go("hakkimizda") }, "Okulumuzu Tan\u0131y\u0131n")), /* @__PURE__ */ React.createElement("div", { className: "ih-hero-trust", style: { display: "flex", flexWrap: "wrap", gap: 20, marginTop: 34 } }, [["Shield", "2\u20136 ya\u015F g\xFCvenli ortam"], ["Cap", "Deneyimli \xF6\u011Fretmenler"], ["Camera", "Kameral\u0131 kamp\xFCs"]].map(([ico, t]) => {
       const Ic = window[ico];
       return /* @__PURE__ */ React.createElement("span", { key: t, style: {
         display: "flex",
@@ -3692,7 +3692,7 @@ function Hero({ go }) {
         fontFamily: "var(--font-body)",
         fontWeight: 600,
         fontSize: "0.95rem"
-      } }, /* @__PURE__ */ React.createElement("span", { style: { width: 22, height: 22, color: "var(--mint-500)" } }, /* @__PURE__ */ React.createElement(Ic, null)), t);
+      } }, /* @__PURE__ */ React.createElement("span", { className: "ih-trust-icon", style: { width: 22, height: 22, color: "var(--mint-500)" } }, /* @__PURE__ */ React.createElement(Ic, null)), t);
     }))),
     /* @__PURE__ */ React.createElement("div", { style: { position: "relative", minHeight: 460 }, className: "ih-hero-art" }, /* @__PURE__ */ React.createElement("div", { style: {
       position: "absolute",
