@@ -1,0 +1,323 @@
+/* ============================================================
+   İlk Hecem Design System — global entry point
+   Consumers link THIS file only. Keep it as @import lines.
+   ============================================================ */
+
+/* === fonts.css === */
+/* ============================================================
+   İlk Hecem — Webfonts
+   Display: Baloo 2  — chunky, rounded, friendly. Full Turkish
+            (latin-ext) coverage incl. ç ğ ı İ ö ş ü Ç Ğ Ö Ş Ü.
+   Body:    Nunito   — soft, highly legible rounded sans (latin-ext).
+   Served from Google Fonts. Consuming HTML should ALSO add the
+   matching <link> in <head> (see ui_kits/website/index.html) so
+   the latin-ext subset loads reliably.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/* === colors.css === */
+/* ============================================================
+   İlk Hecem — Color System
+   Pastel-but-vivid kindergarten palette. Bright, warm, trusted.
+   Hues sampled from the brand logo: sky, sunshine, coral,
+   mint, soft pink, grape + a deep indigo "ink" for text.
+   ============================================================ */
+
+:root {
+  /* ---------- Sky Blue (primary) ---------- */
+  --sky-50:  #ecf8ff;
+  --sky-100: #d4eefe;
+  --sky-200: #aaddfb;
+  --sky-300: #74c8f4;
+  --sky-400: #3fb1ea;
+  --sky-500: #1f9fde;   /* base */
+  --sky-600: #1581bd;
+  --sky-700: #146a9a;
+
+  /* ---------- Sunshine Yellow ---------- */
+  --sun-50:  #fff9e6;
+  --sun-100: #fff0bf;
+  --sun-200: #ffe384;
+  --sun-300: #ffd24a;
+  --sun-400: #ffc52e;   /* base */
+  --sun-500: #fbb013;
+  --sun-600: #e0930a;
+  --sun-700: #b6720a;
+
+  /* ---------- Coral (warm accent / energy) ---------- */
+  --coral-50:  #fff1ee;
+  --coral-100: #ffded7;
+  --coral-200: #ffbcae;
+  --coral-300: #ff9583;
+  --coral-400: #ff7561;   /* base */
+  --coral-500: #fb5840;
+  --coral-600: #e23c24;
+  --coral-700: #bb2f1c;
+
+  /* ---------- Mint Green (growth / nature) ---------- */
+  --mint-50:  #e8fbf3;
+  --mint-100: #c6f4e1;
+  --mint-200: #8fe7c3;
+  --mint-300: #58d6a4;
+  --mint-400: #34c690;   /* base */
+  --mint-500: #1fae7c;
+  --mint-600: #168f66;
+  --mint-700: #157253;
+
+  /* ---------- Soft Pink (warmth / love) ---------- */
+  --pink-50:  #fff0f5;
+  --pink-100: #ffdce8;
+  --pink-200: #ffb6cf;
+  --pink-300: #ff8fb1;   /* base soft */
+  --pink-400: #fb6d97;
+  --pink-500: #ed4f80;
+  --pink-600: #d12f64;
+  --pink-700: #aa224f;
+
+  /* ---------- Grape (playful accent) ---------- */
+  --grape-50:  #f3ecfe;
+  --grape-100: #e6d8fc;
+  --grape-200: #cbb1f6;
+  --grape-300: #ad88ee;
+  --grape-400: #9366e4;   /* base */
+  --grape-500: #7d4fd6;
+  --grape-600: #663bb8;
+  --grape-700: #522f94;
+
+  /* ---------- Ink (deep indigo — logo outline, text) ---------- */
+  --ink-900: #1c1652;   /* darkest — display headings */
+  --ink-800: #271e6b;   /* primary text */
+  --ink-700: #3a3088;
+  --ink-600: #54489f;
+  --ink-500: #6f63b3;   /* muted text on light */
+  --ink-400: #948ac6;
+  --ink-300: #c0badd;
+
+  /* ---------- Cream / neutral surfaces ---------- */
+  --cream-50:  #fffdf8;
+  --cream-100: #fff8ee;   /* page background */
+  --cream-200: #fdf0dd;
+  --cream-300: #f6e7cf;
+  --white:     #ffffff;
+
+  /* ---------- Neutral greys (borders, subtle) ---------- */
+  --grey-100: #f4f2f7;
+  --grey-200: #e7e3ee;
+  --grey-300: #d6d1e0;
+  --grey-400: #b4aec6;
+
+  /* ============================================================
+     Semantic aliases — reach for these in components
+     ============================================================ */
+  --color-primary:        var(--sky-500);
+  --color-primary-hover:  var(--sky-600);
+  --color-primary-soft:   var(--sky-100);
+
+  --color-accent:         var(--coral-400);
+  --color-accent-hover:   var(--coral-500);
+
+  --color-whatsapp:       #25d366;
+  --color-whatsapp-hover: #1ebe5a;
+
+  --text-strong:   var(--ink-900);
+  --text-body:     var(--ink-800);
+  --text-muted:    var(--ink-500);
+  --text-on-color: var(--white);
+
+  --surface-page:   var(--cream-100);
+  --surface-card:   var(--white);
+  --surface-raised: var(--cream-50);
+  --surface-soft:   var(--sky-50);
+
+  --border-soft:    var(--grey-200);
+  --border-card:    rgba(39, 30, 107, 0.08);
+
+  /* Star / rating */
+  --color-star: var(--sun-400);
+
+  /* Program-tile accent rotation (used across the site) */
+  --accent-1: var(--sky-500);
+  --accent-2: var(--coral-400);
+  --accent-3: var(--mint-400);
+  --accent-4: var(--sun-400);
+  --accent-5: var(--pink-300);
+  --accent-6: var(--grape-400);
+}
+
+/* === typography.css === */
+/* ============================================================
+   İlk Hecem — Typography
+   Display = Baloo 2 (chunky, rounded, playful headings)
+   Body    = Nunito  (warm, legible running text)
+   Type scale is generous & friendly — large, rounded, never tiny.
+   Size tokens use the --fs-* prefix (font-size).
+   ============================================================ */
+
+:root {
+  /* Families */
+  --font-display: 'Baloo 2', 'Trebuchet MS', system-ui, sans-serif;
+  --font-body:    'Nunito', system-ui, -apple-system, sans-serif;
+
+  /* Weights */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extra:    800;
+
+  /* Fluid display scale (clamped for responsive heroes) */
+  --fs-hero:    clamp(2.75rem, 8vw, 5.25rem);   /* @kind font */ /* hero headline */
+  --fs-display: clamp(2.25rem, 6vw, 3.75rem);   /* @kind font */ /* section headers */
+  --fs-h1:      clamp(2rem, 5vw, 3rem);         /* @kind font */
+  --fs-h2:      clamp(1.6rem, 3.6vw, 2.25rem);  /* @kind font */
+  --fs-h3:      clamp(1.3rem, 2.2vw, 1.6rem);   /* @kind font */
+  --fs-h4:      1.25rem;   /* @kind font */
+
+  /* Body scale (fixed) */
+  --fs-lead:    1.25rem;   /* @kind font */ /* intro paragraphs */
+  --fs-base:    1.0625rem; /* @kind font */ /* default body */
+  --fs-sm:      0.9375rem; /* @kind font */
+  --fs-xs:      0.8125rem; /* @kind font */
+  --fs-eyebrow: 0.8125rem; /* @kind font */ /* uppercase label above titles */
+
+  /* Line heights */
+  --leading-tight:   1.08;  /* @kind other */
+  --leading-snug:    1.25;  /* @kind other */
+  --leading-normal:  1.55;  /* @kind other */
+  --leading-relaxed: 1.7;   /* @kind other */
+
+  /* Letter spacing */
+  --tracking-tight:   -0.02em; /* @kind other */
+  --tracking-normal:  0;       /* @kind other */
+  --tracking-eyebrow: 0.14em;  /* @kind other */
+}
+
+/* ---- Optional helper classes (handy in static specimens) ---- */
+.t-hero    { font-family: var(--font-display); font-weight: var(--weight-bold);
+             font-size: var(--fs-hero); line-height: var(--leading-tight);
+             letter-spacing: var(--tracking-tight); color: var(--text-strong); }
+.t-display { font-family: var(--font-display); font-weight: var(--weight-semibold);
+             font-size: var(--fs-display); line-height: var(--leading-tight);
+             color: var(--text-strong); }
+.t-eyebrow { font-family: var(--font-body); font-weight: var(--weight-extra);
+             font-size: var(--fs-eyebrow); letter-spacing: var(--tracking-eyebrow);
+             text-transform: uppercase; }
+.t-lead    { font-family: var(--font-body); font-weight: var(--weight-regular);
+             font-size: var(--fs-lead); line-height: var(--leading-relaxed);
+             color: var(--text-body); }
+.t-body    { font-family: var(--font-body); font-weight: var(--weight-regular);
+             font-size: var(--fs-base); line-height: var(--leading-normal);
+             color: var(--text-body); }
+
+/* === spacing.css === */
+/* ============================================================
+   İlk Hecem — Spacing & Layout
+   8px base rhythm. Generous, airy, breathable.
+   ============================================================ */
+
+:root {
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* Section vertical rhythm */
+  --section-y:    clamp(64px, 8vw, 128px);  /* @kind spacing */
+  --section-gap:  var(--space-7);
+
+  /* Content widths */
+  --container:      1200px;
+  --container-wide: 1320px;
+  --container-narrow: 760px;
+  --gutter:         clamp(20px, 5vw, 64px);  /* @kind spacing */
+}
+
+/* === effects.css === */
+/* ============================================================
+   İlk Hecem — Effects: radii, shadows, borders, motion
+   Soft, rounded, pillowy. Shadows are tinted (never pure black)
+   so the whole UI feels warm. Motion is bouncy & friendly.
+   ============================================================ */
+
+:root {
+  /* ---------- Corner radii (everything is round) ---------- */
+  --radius-xs:   8px;
+  --radius-sm:   12px;
+  --radius-md:   18px;
+  --radius-lg:   26px;
+  --radius-xl:   36px;
+  --radius-2xl:  48px;
+  --radius-pill: 999px;
+  --radius-blob: 42% 58% 60% 40% / 50% 42% 58% 50%;
+
+  /* ---------- Shadows (tinted indigo, soft & lifted) ---------- */
+  --shadow-xs:   0 1px 2px rgba(39, 30, 107, 0.06);
+  --shadow-sm:   0 4px 12px rgba(39, 30, 107, 0.08);
+  --shadow-md:   0 10px 24px rgba(39, 30, 107, 0.10);
+  --shadow-lg:   0 18px 44px rgba(39, 30, 107, 0.13);
+  --shadow-xl:   0 30px 70px rgba(39, 30, 107, 0.18);
+  /* Playful colored glows for accent CTAs */
+  --shadow-sky:      0 14px 30px rgba(31, 159, 222, 0.32);
+  --shadow-coral:    0 14px 30px rgba(255, 117, 97, 0.34);
+  --shadow-whatsapp: 0 14px 30px rgba(37, 211, 102, 0.36);
+  --shadow-sun:      0 14px 30px rgba(255, 197, 46, 0.40);
+
+  /* ---------- Borders ---------- */
+  --border-width: 2px;
+  --border-hair:  1px solid var(--border-soft);
+
+  /* ---------- Focus ring (accessible, on-brand) ---------- */
+  --focus-ring: 0 0 0 4px rgba(31, 159, 222, 0.35);
+
+  /* ---------- Motion ---------- */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);     /* @kind other */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);  /* @kind other */
+  --ease-soft:   cubic-bezier(0.4, 0, 0.2, 1);       /* @kind other */
+  --dur-fast:   140ms;     /* @kind other */
+  --dur-base:   240ms;     /* @kind other */
+  --dur-slow:   420ms;     /* @kind other */
+  --dur-float:  6s;        /* @kind other */
+}
+
+/* ---------- Ambient keyframes (clouds, balloons, stars) ---------- */
+@keyframes ih-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes ih-float-x {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(18px); }
+}
+@keyframes ih-drift {
+  from { transform: translateX(-28vw); }
+  to   { transform: translateX(128vw); }
+}
+@keyframes ih-bob {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%      { transform: translateY(-10px) rotate(3deg); }
+}
+@keyframes ih-twinkle {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.8); }
+}
+@keyframes ih-spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes ih-pop {
+  0%   { transform: scale(0.85); opacity: 0; }
+  60%  { transform: scale(1.04); }
+  100% { transform: scale(1);    opacity: 1; }
+}
+@keyframes ih-rise {
+  from { transform: translateY(28px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+

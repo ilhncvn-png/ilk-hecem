@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>İlk Hecem Anaokulu — Mutlu Çocuklar, Aydınlık Yarınlar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { margin: 0; background: var(--surface-page); font-family: var(--font-body); color: var(--text-body);
+         -webkit-font-smoothing: antialiased; overflow-x: hidden; width: 100%; position: relative; }
+  a { -webkit-tap-highlight-color: transparent; }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 980px) {
+    .ih-hero-grid, .ih-2col { grid-template-columns: 1fr !important; }
+    .ih-hero-art { min-height: 360px !important; margin-top: 8px; }
+    .ih-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+    .ih-grid-3 { grid-template-columns: 1fr !important; }
+    .ih-gallery { grid-template-columns: repeat(2, 1fr) !important; }
+    .ih-footer-grid { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 760px) {
+    .ih-desktop-nav { display: none !important; }
+    .ih-mobile-toggle { display: inline-flex !important; }
+  }
+  @media (max-width: 560px) {
+    .ih-grid-4, .ih-grid-2 { grid-template-columns: 1fr !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="bundle.js"></script>
+</body>
+</html>
