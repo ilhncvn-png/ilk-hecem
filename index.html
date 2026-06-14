@@ -32,10 +32,10 @@
          -webkit-font-smoothing: antialiased; overflow-x: hidden; width: 100%; position: relative; }
   a { -webkit-tap-highlight-color: transparent; }
 
-  /* ---- Responsive ---- */
+  /* ── TABLET (≤ 980px) ── */
   @media (max-width: 980px) {
     .ih-hero-grid, .ih-2col { grid-template-columns: 1fr !important; }
-    .ih-hero-art { min-height: 360px !important; margin-top: 8px; }
+    .ih-hero-art { min-height: 320px !important; margin-top: 16px; }
     .ih-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
     .ih-grid-3 { grid-template-columns: 1fr !important; }
     .ih-gallery { grid-template-columns: repeat(2, 1fr) !important; }
@@ -45,11 +45,161 @@
     .ih-desktop-nav { display: none !important; }
     .ih-mobile-toggle { display: inline-flex !important; }
   }
-  @media (max-width: 560px) {
-    .ih-grid-4, .ih-grid-2 { grid-template-columns: 1fr !important; }
+
+  /* ── MOBİL KOMPLE DÜZENLEME (≤ 640px) ── */
+  @media (max-width: 640px) {
+
+    /* 1. TİPOGRAFİ — tüm başlıkları küçült */
+    :root {
+      --fs-hero:    1.75rem;
+      --fs-display: 1.45rem;
+      --fs-h2:      1.3rem;
+      --fs-h3:      1.05rem;
+      --fs-h4:      1rem;
+      --fs-lead:    0.9375rem;
+      --section-y:  40px;
+      --gutter:     16px;
+    }
+
+    /* 2. HERO — sadeleştir */
+    #top { padding-top: 96px !important; padding-bottom: 40px !important; }
+    .ih-hero-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+    /* Hero art: sadece ana fotoğrafı göster, overlay kartları/logoyu gizle */
+    .ih-hero-art {
+      min-height: 220px !important;
+      height: 220px !important;
+      border-radius: var(--radius-xl) !important;
+      overflow: hidden !important;
+      margin-top: 0 !important;
+    }
+    .ih-hero-art > div:first-child {
+      border-radius: 0 !important;
+      transform: none !important;
+    }
+    /* Floating stats kartı, küçük fotoğraf ve logo → gizle */
+    .ih-hero-art > div:nth-child(n+2),
+    .ih-hero-art > img { display: none !important; }
+
+    /* Hero başlık ve paragraf */
+    #top h1 { margin-bottom: 12px !important; }
+    #top p[style] { margin-top: 10px !important; max-width: 100% !important; }
+
+    /* Butonlar: alt alta */
+    #top > div > div > div[style*="display: flex"] { gap: 10px !important; }
+    #top > div > div a[style*="display: flex"],
+    #top > div > div button { min-width: 0 !important; }
+
+    /* Hero ambient süslemeler (bulutlar, balonlar, yıldızlar) → gizle */
+    #top > span[aria-hidden="true"] { display: none !important; }
+
+    /* 3. HAKKIMIZDA — fotoğrafı landscape'e dönüştür, overlay kartı gizle */
+    #hakkimizda .ih-2col { gap: 24px !important; }
+    #hakkimizda .ih-2col > div:first-child > div:first-child {
+      aspect-ratio: 4/3 !important;
+    }
+    /* Quote overlay kartını gizle */
+    #hakkimizda .ih-2col > div:first-child > div:nth-child(2) { display: none !important; }
+    /* İstatistik grid: 2 sütun kalsın, padding küçülsün */
+    #hakkimizda [style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 10px !important;
+      margin-top: 20px !important;
+    }
+    #hakkimizda [style*="padding: 18px"] { padding: 12px !important; }
+
+    /* 4. EĞİTİM ANLAYIŞI — 2 sütun, ikonları küçült, bulutları gizle */
+    #anlayis span[aria-hidden="true"] { display: none !important; }
+    #anlayis .ih-grid-4 {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 16px !important;
+      margin-top: 28px !important;
+    }
+    #anlayis .ih-grid-4 > div > span:first-child {
+      width: 60px !important;
+      height: 60px !important;
+    }
+    #anlayis .ih-grid-4 > div > span:first-child > span {
+      width: 28px !important;
+      height: 28px !important;
+    }
+    #anlayis .ih-grid-4 h3 { margin: 12px 0 6px !important; font-size: 0.95rem !important; }
+    #anlayis .ih-grid-4 p { font-size: 0.875rem !important; }
+
+    /* 5. BRANŞ DERSLERİ — 2 sütun */
+    #branslar .ih-grid-4 {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+      margin-top: 28px !important;
+    }
+
+    /* 6. NEDEN İLK HECEM — özellikler 2 sütun, konteyner dar */
+    #neden .ih-2col { gap: 24px !important; }
+    .ih-grid-2 { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+
+    /* 7. GALERİ — 2 sütun, sabit yükseklik küçük */
+    #galeri span[aria-hidden="true"] { display: none !important; }
+    .ih-gallery {
+      grid-template-columns: repeat(2, 1fr) !important;
+      grid-auto-rows: 110px !important;
+      gap: 8px !important;
+      margin-top: 28px !important;
+    }
+    /* Tüm galeri kartları tek hücre kapla — span 2 kaldır */
+    .ih-gallery > button {
+      grid-column: span 1 !important;
+      grid-row: span 1 !important;
+    }
+
+    /* 8. VELİ YORUMLARI — tek sütun */
+    #yorumlar .ih-grid-3 { grid-template-columns: 1fr !important; gap: 14px !important; margin-top: 28px !important; }
+    #yorumlar [style*="font-size: 22px"] { font-size: 18px !important; }
+
+    /* 9. SSS — padding küçült */
+    #sss [style*="padding: 20px 24px"] { padding: 16px !important; }
+    #sss [style*="padding: '0 24px"] { padding: 0 16px 18px !important; }
+    #sss [style*="font-size: 1.1rem"] { font-size: 0.975rem !important; }
+
+    /* 10. İLETİŞİM — üst üste, blob gizle */
+    #iletisim > div > span[aria-hidden="true"] { display: none !important; }
+    #iletisim .ih-2col { gap: 24px !important; }
+    #iletisim [style*="padding: 16px 20px"] { padding: 12px 14px !important; gap: 10px !important; }
+    #iletisim [style*="padding: clamp"] { padding: 20px !important; }
+    #iletisim [style*="flex-wrap: wrap"][style*="gap: 12px"] { gap: 8px !important; }
+
+    /* 11. FOOTER — tek sütun, logo küçük */
+    .ih-footer-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+    footer img[alt="İlk Hecem Anaokulu"] { height: 52px !important; }
+    footer [style*="padding: '56px 0"] { padding: 36px 0 20px !important; }
+
+    /* 12. FLOATING WHATSAPP — biraz küçült */
+    a[aria-label="WhatsApp'tan yazın"] {
+      width: 52px !important;
+      height: 52px !important;
+      right: 14px !important;
+      bottom: 14px !important;
+    }
+    a[aria-label="WhatsApp'tan yazın"] > span:last-child {
+      width: 28px !important;
+      height: 28px !important;
+    }
   }
+
+  /* ── ÇOK KÜÇÜK EKRANLAR (≤ 390px) ── */
+  @media (max-width: 390px) {
+    :root {
+      --fs-hero:    1.55rem;
+      --fs-display: 1.3rem;
+      --gutter:     14px;
+    }
+    .ih-grid-4, .ih-grid-2 { grid-template-columns: repeat(2, 1fr) !important; }
+    #anlayis .ih-grid-4, #branslar .ih-grid-4 {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; }
+    * { animation: none !important; transition: none !important; }
   }
 </style>
 </head>
